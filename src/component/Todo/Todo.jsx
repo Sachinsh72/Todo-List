@@ -1,13 +1,16 @@
 import { useState } from "react";
 
-function Todo({todoData, isFinished, id}){
+function Todo({todoData, isFinished, changeFinished}){
 
     const [finished, setFinished] = useState(isFinished);
     const [isEditing, setEditting] = useState(false);
     const [editText, setEditText] = useState(todoData)
     return(
         <div>
-            <input type="checkbox" checked={finished}/>
+            <input type="checkbox" checked={finished} onChange={(e) => {
+                setFinished(e.target.checked);
+                changeFinished(e.target.checked);
+            }}/>
             {todoData}
             <button>Edit</button>
             <button>Delete</button>

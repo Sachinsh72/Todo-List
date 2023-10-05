@@ -9,16 +9,17 @@ function TodoList({list, updateList}){
                 list.map(todo => <Todo 
                                 key={todo.id} 
                                 id={todo.id} 
-                                isFinished={todo.Finished} 
+                                isFinished={todo.finished} 
                                 todoData={todo.todoData}
                                 changeFinished={(isFinished) =>{
-                                    const updateList = list.map(t => {
+                                    console.log(isFinished);
+                                    const updatedList = list.map(t => {
                                         if(t.id ==todo.id){
                                             todo.Finished = isFinished;
                                         }
-                                        return todo;
+                                        return t;
                                     });
-                                    updateList(updateList);
+                                    updateList(updatedList);
                                 }}
                             />
                         )
@@ -28,3 +29,5 @@ function TodoList({list, updateList}){
 }
 
 export default TodoList;
+
+26

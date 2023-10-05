@@ -12,7 +12,11 @@ function AddTodo({updateList}){
             placeholder="add your next todo.." 
             onChange={e=>setINputText(e.target.value)}
             />
-            <button onClick={()=> { updateList(inputText); setINputText('')}}>Add</button>
+            <button onClick={()=> { 
+                updateList(inputText)
+                setINputText('')
+                
+            }}>Add</button>
         </div>
     )
 }

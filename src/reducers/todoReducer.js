@@ -4,11 +4,10 @@ function todoReducer(state, action){
         return [...state, {id:state.length + 1, todoData: todoText, finished: false}];
     }else if (action.type == 'edit_todo') {
         let todo = action.payload.todo;
-        let isFinished = action.payload.isFinished;
         let todoText = action.payload.todoText;
         const updatedList = state.map(t => {
             if(t.id == todo.id){
-                todo.finished = isFinished;
+                todo.todoData = todoText;
             }
             return t;
         });
